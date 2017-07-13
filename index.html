@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.loader {
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid black;
+	width: 50px;
+	height: 50px;
+	-webkit-animation: spin 4s linear infinite;
+	animation: spin 4s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+.LOADER1{
+	border-top: 16px solid red;
+}
+.LOADER2{
+	border-top: 16px solid green;
+}
+.LOADER3{
+	border-top: 16px solid blue;
+}
+.LOADE4{
+	border-top: 16px solid yellow;
+}
+.loader-wrapper{
+	display: inline-block;
+	position: relative;
+	min-width: 82px;
+	min-height: 82px;
+}
+.loader-wrapper span{
+	position: absolute;
+	top : 35px;
+	left : 35px;
+}
+.loader-wrapper p{
+	margin: 0px;
+	text-align: center;
+	font-size: 8px;
+}
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- <h2>How To Create A Loader</h2>
+	<p><strong>Note:</strong> The -webkit- and -ms- prefixes are for browsers that do not support animation and transform properties.</p> -->
+
+	<div>
+		<div class="loader-wrapper"><span>1</span><div class="loader LOADER1"></div><p class="loader1-actions-list"></p></div>
+		<div class="loader-wrapper"><span>2</span><div class="loader LOADER2"></div><p class="loader2-actions-list"></p></div>
+		<div class="loader-wrapper"><span>3</span><div class="loader LOADER3"></div><p class="loader3-actions-list"></p></div>
+		<div class="loader-wrapper"><span>4</span><div class="loader LOADER4"></div><p class="loader4-actions-list"></p></div>
+		<div class="loader-wrapper"><span>5</span><div class="loader LOADER5"></div><p class="loader5-actions-list"></p></div>
+		<div class="loader-wrapper"><span>6</span><div class="loader LOADER6"></div><p class="loader6-actions-list"></p></div>
+		<div class="loader-wrapper"><span>7</span><div class="loader LOADER7"></div><p class="loader7-actions-list"></p></div>
+		<div class="loader-wrapper"><span>8</span><div class="loader LOADER8"></div><p class="loader8-actions-list"></p></div>
+		<div class="loader-wrapper"><span>9</span><div class="loader LOADER9"></div><p class="loader9-actions-list"></p></div>
+		<div class="loader-wrapper"><span>10</span><div class="loader LOADER10"></div><p class="loader10-actions-list"></p></div>
+		<div class="loader-wrapper"><span>11</span><div class="loader LOADER11"></div><p class="loader11-actions-list"></p></div>
+		<div class="loader-wrapper"><span>12</span><div class="loader LOADER12"></div><p class="loader12-actions-list"></p></div>
+		<div class="loader-wrapper"><span>13</span><div class="loader LOADER13"></div><p class="loader13-actions-list"></p></div>
+		<div class="loader-wrapper"><span>14</span><div class="loader LOADER14"></div><p class="loader14-actions-list"></p></div>
+		<div class="loader-wrapper"><span>15</span><div class="loader LOADER15"></div><p class="loader15-actions-list"></p></div>
+		<div class="loader-wrapper"><span>16</span><div class="loader LOADER16"></div><p class="loader16-actions-list"></p></div>
+		<div class="loader-wrapper"><span>17</span><div class="loader LOADER17"></div><p class="loader17-actions-list"></p></div>
+		<div class="loader-wrapper"><span>18</span><div class="loader LOADER18"></div><p class="loader18-actions-list"></p></div>
+		<div class="loader-wrapper"><span>19</span><div class="loader LOADER19"></div><p class="loader19-actions-list"></p></div>
+		<div class="loader-wrapper"><span>20</span><div class="loader LOADER20"></div><p class="loader20-actions-list"></p></div>
+		<div class="loader-wrapper"><span>21</span><div class="loader LOADER21"></div><p class="loader21-actions-list"></p></div>
+		<div class="loader-wrapper"><span>22</span><div class="loader LOADER22"></div><p class="loader22-actions-list"></p></div>
+		<div class="loader-wrapper"><span>23</span><div class="loader LOADER23"></div><p class="loader23-actions-list"></p></div>
+		<div class="loader-wrapper"><span>24</span><div class="loader LOADER24"></div><p class="loader24-actions-list"></p></div>
+	</div>
+	<div style="width:50%; display:inline-block;">
+		<select style="width:100%"class="action1" multiple="multiple">
+			<option value="LOADER1">LOADER1</option>
+			<option value="LOADER2">LOADER2</option>
+			<option value="LOADER3">LOADER3</option>
+			<option value="LOADER4">LOADER4</option>
+			<option value="LOADER5">LOADER5</option>
+			<option value="LOADER6">LOADER6</option>
+			<option value="LOADER7">LOADER7</option>
+			<option value="LOADER8">LOADER8</option>
+			<option value="LOADER9">LOADER9</option>
+			<option value="LOADER10">LOADER10</option>
+			<option value="LOADER11">LOADER11</option>
+			<option value="LOADER12">LOADER12</option>
+			<option value="LOADER13">LOADER13</option>
+			<option value="LOADER14">LOADER14</option>
+			<option value="LOADER15">LOADER15</option>
+			<option value="LOADER16">LOADER16</option>
+			<option value="LOADER17">LOADER17</option>
+			<option value="LOADER18">LOADER18</option>
+			<option value="LOADER19">LOADER19</option>
+			<option value="LOADER20">LOADER20</option>
+		</select>
+		<input type="button" value="Action 1 start" onclick="startLoader('action1')">
+		<input type="button" value="Action 1 stop" onclick="stopLoader('action1')">
+	</div>
+	<div style="width:49%; display:inline-block;">
+
+
+		<select style="width:100%" class="action2" multiple="multiple">
+			<option value="LOADER1">LOADER1</option>
+			<option value="LOADER2">LOADER2</option>
+			<option value="LOADER3">LOADER3</option>
+			<option value="LOADER4">LOADER4</option>
+			<option value="LOADER5">LOADER5</option>
+			<option value="LOADER6">LOADER6</option>
+			<option value="LOADER7">LOADER7</option>
+			<option value="LOADER8">LOADER8</option>
+			<option value="LOADER9">LOADER9</option>
+			<option value="LOADER10">LOADER10</option>
+			<option value="LOADER11">LOADER11</option>
+			<option value="LOADER12">LOADER12</option>
+			<option value="LOADER13">LOADER13</option>
+			<option value="LOADER14">LOADER14</option>
+			<option value="LOADER15">LOADER15</option>
+			<option value="LOADER16">LOADER16</option>
+			<option value="LOADER17">LOADER17</option>
+			<option value="LOADER18">LOADER18</option>
+			<option value="LOADER19">LOADER19</option>
+			<option value="LOADER20">LOADER20</option>
+		</select>
+		<input type="button" value="Action 2 start" onclick="startLoader('action2')">
+		<input type="button" value="Action2 stop" onclick="stopLoader('action2')">
+	</div>
+	<input type="button" value="start loader" onclick="startLoader()">
+	<input type="button" value="stop loader" onclick="stopLoader()">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	<script src="js/store.js"></script>
+	<script>
+	$('.action1').select2({
+    placeholder: 'Select loaders...'
+});
+$('.action2').select2({
+    placeholder: 'Select loaders..'
+});
+function startLoader(actionName) {
+    let associateLoaders = $('.' + actionName).select2('val');
+    store.dispatch({
+        type: 'ADD_ACTION',
+        name: actionName,
+        associateLoaders: associateLoaders
+    });
+    updateActionListForLoader();
+}
+function updateActionListForLoader() {
+    for (let i = 1; i <= 20; i++) {
+        let loaderName = 'LOADER' + i;
+        var actionnamelist = getActionsListForloader(loaderName);
+        let actionsList = document.getElementsByClassName(
+            loaderName.toLowerCase() + '-actions-list'
+        )[0];
+        //console.log(i, actionnamelist);
+        actionsList.innerHTML =
+            actionnamelist && actionnamelist.length > 0
+                ? actionnamelist
+                      .map(action => action.replace('action', ''))
+                      .toString()
+                : '';
+        // actionsList.innerHTML.length != 0
+        //     ? actionsList.innerHTML + ',' + actionName.replace('action', '')
+        //     : actionName.replace('action', '');
+    }
+}
+
+function loadAllLoadder() {
+    for (let i = 1; i <= 20; i++) {
+        store.dispatch({
+            type: 'ADD_LOADER',
+            name: 'LOADER' + i
+        });
+    }
+}
+loadAllLoadder();
+
+function stopLoader(actionName) {
+    if (actionName) {
+        let associatedArray = $('.' + actionName).select2('val');
+        store.dispatch({
+            type: 'REMOVE_ACTION',
+            name: actionName,
+            associateLoaders: associatedArray
+        });
+        updateActionListForLoader();
+    } else {
+        var allLoader = document.getElementsByClassName('loader');
+        for (var i = 0; i < allLoader.length; i++) {
+            allLoader[i].style.display = 'none';
+        }
+    }
+    $('.' + actionName).select2({ val: '' });
+}
+stopLoader();
+</script>
+
+</body>
+</html>
