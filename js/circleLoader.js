@@ -1,5 +1,9 @@
 (function() {
-    this.LOADER = function() {
+    this.CircleLoader = function(options) {
+        this.elementId = '';
+        this.loaderName = '';
+        this.display = false;
+
         this.overlay = null;
         let defaults = {
             overlay: false,
@@ -22,16 +26,17 @@
         buildOut.call(this);
 
         //public method
-        LOADER.prototype.open = function() {
+        CircleLoader.prototype.open = function() {
             buildOut.call(this);
             this.element.style.display = 'inline-block';
         };
-        LOADER.prototype.close = function() {
+        CircleLoader.prototype.close = function() {
             this.element.style.display = 'none';
         };
 
         function buildOut() {
-            this.element = document.getElementById(this.options.loaderId);
+            this.element = document.getElementById(this.options.elementId);
+
             if (this.options.display == true) {
                 this.element.style.display = 'inline-block';
             } else {
@@ -40,7 +45,7 @@
         }
     };
 })();
-var LOADER_OBJ = new LOADER({
-    overlay: true,
-    display: true
-});
+// var CircleLoader_OBJ = new CircleLoader({
+//     overlay: true,
+//     display: true
+// });

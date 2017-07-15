@@ -56,7 +56,10 @@
 
 	<!-- <h2>How To Create A Loader</h2>
 	<p><strong>Note:</strong> The -webkit- and -ms- prefixes are for browsers that do not support animation and transform properties.</p> -->
-<div class="loader-wrapper"><span>24</span><div id="loader" class="loader LOADER24"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="circle-loader-1" data-loader-name="circle-loader"  data-display=false class="loader"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="circle-loader-2" data-loader-name="circle-loader" data-display=false class="loader"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="spin-loader-1" data-loader-name="spin-loader" data-display=true class="loader1"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="spin-loader-2" data-loader-name="spin-loader" data-display=true class="loader1"></div><p class="loader24-actions-list"></p></div>
 <div id="spin"></spin>
 <!-- <br/><br/>
 	<div>
@@ -210,10 +213,18 @@ function stopLoader(actionName) {
 }
 stopLoader();
 </script> -->
+
+<!-- all constants types -->
+<script src="js/actionsList.js"></script>
+<script src="js/loadersList.js"></script>
+<!-- all loaders -->
+<script src="js/circleLoader.js"></script>
+<script src="js/spinLoader.js"></script>
+
+
 <script src="js/store.js"></script>
-<script src="js/spin.js"></script>
+<script src="js/loaderActions.js"></script>
 <script>
-Spinner.getSpinner('spin', '100px', 10, 'red');
 //let spinner = new Spinner().spin();
 // document.getElementById('spin').appendChild(spinner.el);
 </script>

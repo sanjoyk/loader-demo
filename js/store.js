@@ -1,10 +1,4 @@
-// LOADER_OBJ.open();
-// // setTimeout(() => LOADER_OBJ.close(), 90000);
-// setTimeout(function() {
-//     debugger;
-//     LOADER_OBJ.close();
-// }, 3000);
-var Loader = function(loaderName) {
+var LoaderOldClass = function(loaderName) {
     this.name = loaderName;
     this.visible = false;
     this.actionsList = [];
@@ -30,7 +24,7 @@ function createStore(reducer) {
     return { dispatch, getState, subscribe };
 }
 
-const loaderLibrary = (state = {}, action) => {
+const combineReducer = (state = {}, action) => {
     function findLoaderIndex(loaderName) {
         let associatedLoaderIndex = null;
         for (let i = 0; i < state.loaders.length; i++) {
@@ -43,10 +37,25 @@ const loaderLibrary = (state = {}, action) => {
         return associatedLoaderIndex;
     }
     function removeActionfromLoader(actionName) {}
+    if (!action.type && typeof action.type === 'undefined') {
+        return state;
+    }
     switch (action.type) {
-        case 'ADD_LOADER':
-            let loader = new Loader(action.name);
-            state.loaders.push(loader);
+        case ActionsList.ADD_LOADER:
+            let loader = null;
+            switch (action.loaderInfo.loaderName) {
+                case LoadersList.CIRCLE_LOADER:
+                    loader = new CircleLoader(action.loaderInfo);
+                    break;
+                case LoadersList.SPIN_LOADER:
+                    loader = new SpinnerLoader(action.loaderInfo);
+                    break;
+                default:
+                    loader = null;
+            }
+            if (loader) {
+                state.loaders.push(loader);
+            }
             return state;
 
         case 'ADD_ACTION':
@@ -103,7 +112,7 @@ const loaderLibrary = (state = {}, action) => {
             return state;
     }
 };
-const store = createStore(loaderLibrary);
+this.store = createStore(combineReducer);
 console.log('store initialized', store.getState());
 
 function getActionsListForloader(loaderName) {
@@ -117,6 +126,15 @@ function getActionsListForloader(loaderName) {
     return [...actionsList];
     //return store.get.loaders[i].actionsList;
 }
+
+//action type
+//loader id
+//
+//create LoaderClass
+//call initialization and set all loader
+//add add new loader  and override the loader list in store ie reinitialize
+//on store change subscribe correspoding loader
+//
 
 // store.dispatch({
 //     type: 'ADD_LOADER',
