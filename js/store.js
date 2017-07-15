@@ -1,42 +1,9 @@
-(function() {
-    this.LOADER = function() {
-        this.overlay = null;
-        let defaults = {
-            overlay: false,
-            loaderId: 'loader'
-        };
-        if (arguments[0] && typeof arguments[0] === 'object') {
-            this.options = extendDefaults(defaults, arguments[0]);
-        }
-        //Utility method to extend defaults with user options
-        function extendDefaults(source, properties) {
-            var property;
-            for (property in properties) {
-                if (properties.hasOwnProperty(property)) {
-                    source[property] = properties[property];
-                }
-            }
-            return source;
-        }
-    };
-    //public method
-    LOADER.prototype.open = function() {
-        buildOut.call(this);
-        this.element.style.display = 'inline-block';
-    };
-    LOADER.prototype.close = function() {
-        this.element.style.display = 'none';
-    };
-
-    function buildOut() {
-        this.element = document.getElementById(this.options.loaderId);
-    }
-})();
-var LOADER_OBJ = new LOADER({
-    overlay: true
-});
-LOADER_OBJ.open();
-setTimeout(() => LOADER_OBJ.close(), 9);
+// LOADER_OBJ.open();
+// // setTimeout(() => LOADER_OBJ.close(), 90000);
+// setTimeout(function() {
+//     debugger;
+//     LOADER_OBJ.close();
+// }, 3000);
 var Loader = function(loaderName) {
     this.name = loaderName;
     this.visible = false;
