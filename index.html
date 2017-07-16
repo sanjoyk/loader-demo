@@ -26,105 +26,74 @@
 
 	<!-- <h2>How To Create A Loader</h2>
 	<p><strong>Note:</strong> The -webkit- and -ms- prefixes are for browsers that do not support animation and transform properties.</p> -->
-<div class="loader-wrapper"><span>24</span><div id="circle-loader-1" data-loader-name="circle-loader"  data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="circle-loader-2" data-loader-name="circle-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="spin-loader-1" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="spin-loader-2" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
-<div id="spin"></spin>
-<!-- <br/><br/>
-	<div>
-		<div class="loader-wrapper"><span>1</span><div class="loader LOADER1"></div><p class="loader1-actions-list"></p></div>
-		<div class="loader-wrapper"><span>2</span><div class="loader LOADER2"></div><p class="loader2-actions-list"></p></div>
-		<div class="loader-wrapper"><span>3</span><div class="loader LOADER3"></div><p class="loader3-actions-list"></p></div>
-		<div class="loader-wrapper"><span>4</span><div class="loader LOADER4"></div><p class="loader4-actions-list"></p></div>
-		<div class="loader-wrapper"><span>5</span><div class="loader LOADER5"></div><p class="loader5-actions-list"></p></div>
-		<div class="loader-wrapper"><span>6</span><div class="loader LOADER6"></div><p class="loader6-actions-list"></p></div>
-		<div class="loader-wrapper"><span>7</span><div class="loader LOADER7"></div><p class="loader7-actions-list"></p></div>
-		<div class="loader-wrapper"><span>8</span><div class="loader LOADER8"></div><p class="loader8-actions-list"></p></div>
-		<div class="loader-wrapper"><span>9</span><div class="loader LOADER9"></div><p class="loader9-actions-list"></p></div>
-		<div class="loader-wrapper"><span>10</span><div class="loader LOADER10"></div><p class="loader10-actions-list"></p></div>
-		<div class="loader-wrapper"><span>11</span><div class="loader LOADER11"></div><p class="loader11-actions-list"></p></div>
-		<div class="loader-wrapper"><span>12</span><div class="loader LOADER12"></div><p class="loader12-actions-list"></p></div>
-		<div class="loader-wrapper"><span>13</span><div class="loader LOADER13"></div><p class="loader13-actions-list"></p></div>
-		<div class="loader-wrapper"><span>14</span><div class="loader LOADER14"></div><p class="loader14-actions-list"></p></div>
-		<div class="loader-wrapper"><span>15</span><div class="loader LOADER15"></div><p class="loader15-actions-list"></p></div>
-		<div class="loader-wrapper"><span>16</span><div class="loader LOADER16"></div><p class="loader16-actions-list"></p></div>
-		<div class="loader-wrapper"><span>17</span><div class="loader LOADER17"></div><p class="loader17-actions-list"></p></div>
-		<div class="loader-wrapper"><span>18</span><div class="loader LOADER18"></div><p class="loader18-actions-list"></p></div>
-		<div class="loader-wrapper"><span>19</span><div class="loader LOADER19"></div><p class="loader19-actions-list"></p></div>
-		<div class="loader-wrapper"><span>20</span><div class="loader LOADER20"></div><p class="loader20-actions-list"></p></div>
-		<div class="loader-wrapper"><span>21</span><div class="loader LOADER21"></div><p class="loader21-actions-list"></p></div>
-		<div class="loader-wrapper"><span>22</span><div class="loader LOADER22"></div><p class="loader22-actions-list"></p></div>
-		<div class="loader-wrapper"><span>23</span><div class="loader LOADER23"></div><p class="loader23-actions-list"></p></div>
-		<div class="loader-wrapper"><span>24</span><div class="loader LOADER24"></div><p class="loader24-actions-list"></p></div>
-	</div>
+	<div class="loader-wrapper"><span>1</span><div id="circle-loader-1" data-loader-name="circle-loader"  data-display=false class="loader1"></div><p class="circle-loader-1-actions-list"></p></div>
+	<div class="loader-wrapper"><span>2</span><div id="circle-loader-2" data-loader-name="circle-loader" data-display=false class="loader1"></div><p class="circle-loader-2-actions-list"></p></div>
+	<div class="loader-wrapper"><span>3</span><div id="spin-loader-1" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="spin-loader-1-actions-list"></p></div>
+	<div class="loader-wrapper"><span>4</span><div id="spin-loader-2" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="spin-loader-2-actions-list"></p></div>
+	<div id="spin"></spin>
+
 	<div style="width:50%; display:inline-block;">
-		<select style="width:100%"class="action1" multiple="multiple">
-			<option value="LOADER1">LOADER1</option>
-			<option value="LOADER2">LOADER2</option>
-			<option value="LOADER3">LOADER3</option>
-			<option value="LOADER4">LOADER4</option>
-			<option value="LOADER5">LOADER5</option>
-			<option value="LOADER6">LOADER6</option>
-			<option value="LOADER7">LOADER7</option>
-			<option value="LOADER8">LOADER8</option>
-			<option value="LOADER9">LOADER9</option>
-			<option value="LOADER10">LOADER10</option>
-			<option value="LOADER11">LOADER11</option>
-			<option value="LOADER12">LOADER12</option>
-			<option value="LOADER13">LOADER13</option>
-			<option value="LOADER14">LOADER14</option>
-			<option value="LOADER15">LOADER15</option>
-			<option value="LOADER16">LOADER16</option>
-			<option value="LOADER17">LOADER17</option>
-			<option value="LOADER18">LOADER18</option>
-			<option value="LOADER19">LOADER19</option>
-			<option value="LOADER20">LOADER20</option>
-		</select>
-		<input type="button" value="Action 1 start" onclick="startLoader('action1')">
-		<input type="button" value="Action 1 stop" onclick="stopLoader('action1')">
-	</div>
-	<div style="width:49%; display:inline-block;">
+	<select style="width:100%"class="action1" multiple="multiple">
+	<option value="circle-loader-1">circle-loader 1</option>
+	<option value="circle-loader-2">circle-loader 2</option>
+	<option value="spin-loader-1">spin-loader 1</option>
+	<option value="spin-loader-2">spin-loader 2</option>
+</select>
+<input type="button" value="Action 1 start" onclick="startLoader('action1')">
+<input type="button" value="Action 1 stop" onclick="stopLoader('action1')">
+
+</div>
+<div style="width:49%; display:inline-block;">
 
 
-		<select style="width:100%" class="action2" multiple="multiple">
-			<option value="LOADER1">LOADER1</option>
-			<option value="LOADER2">LOADER2</option>
-			<option value="LOADER3">LOADER3</option>
-			<option value="LOADER4">LOADER4</option>
-			<option value="LOADER5">LOADER5</option>
-			<option value="LOADER6">LOADER6</option>
-			<option value="LOADER7">LOADER7</option>
-			<option value="LOADER8">LOADER8</option>
-			<option value="LOADER9">LOADER9</option>
-			<option value="LOADER10">LOADER10</option>
-			<option value="LOADER11">LOADER11</option>
-			<option value="LOADER12">LOADER12</option>
-			<option value="LOADER13">LOADER13</option>
-			<option value="LOADER14">LOADER14</option>
-			<option value="LOADER15">LOADER15</option>
-			<option value="LOADER16">LOADER16</option>
-			<option value="LOADER17">LOADER17</option>
-			<option value="LOADER18">LOADER18</option>
-			<option value="LOADER19">LOADER19</option>
-			<option value="LOADER20">LOADER20</option>
-		</select>
-		<input type="button" value="Action 2 start" onclick="startLoader('action2')">
-		<input type="button" value="Action2 stop" onclick="stopLoader('action2')">
-	</div>
-	<input type="button" value="start loader" onclick="startLoader()">
-	<input type="button" value="stop loader" onclick="stopLoader()">
+<select style="width:100%" class="action2" multiple="multiple">
+	<option value="circle-loader-1">circle-loader 1</option>
+	<option value="circle-loader-2">circle-loader 2</option>
+	<option value="spin-loader-1">spin-loader 1</option>
+	<option value="spin-loader-2">spin-loader 2</option>
+</select>
+<input type="button" value="Action 2 start" onclick="startLoader('action2')">
+<input type="button" value="Action2 stop" onclick="stopLoader('action2')">
+</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-	<script src="js/store.js"></script>
-	<script>
-	$('.action1').select2({
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+<!-- all constants types -->
+<script src="js/actionsList.js"></script>
+<script src="js/loadersList.js"></script>
+<!-- all loaders -->
+<script src="js/circleLoader.js"></script>
+<script src="js/spinLoader.js"></script>
+
+<!-- store -->
+<script src="js/store.js"></script>
+<!-- API method -->
+<script src="js/loaderActions.js"></script>
+
+<script>
+// don't delete
+//action samples
+// store.dispatch({
+//     type: ActionsList.ADD_ACTION,
+//     name: 'FETCH_DATA',
+//     associateLoaders: ['spin-loader-2', 'spin-loader-1']
+// });
+// store.dispatch({
+//     type: ActionsList.REMOVE_ACTION,
+//     name: 'FETCH_DATA',
+//     associateLoaders: ['spin-loader-1']
+// });
+
+//let spinner = new Spinner().spin();
+// document.getElementById('spin').appendChild(spinner.el);
+$('.action1').select2({
     placeholder: 'Select loaders...'
 });
 $('.action2').select2({
-    placeholder: 'Select loaders..'
+    placeholder: 'Select loaders...'
 });
+
 function startLoader(actionName) {
     let associateLoaders = $('.' + actionName).select2('val');
     store.dispatch({
@@ -134,9 +103,16 @@ function startLoader(actionName) {
     });
     updateActionListForLoader();
 }
+
 function updateActionListForLoader() {
-    for (let i = 1; i <= 20; i++) {
-        let loaderName = 'LOADER' + i;
+    let loaderNameList = [
+        'spin-loader-1',
+        'spin-loader-2',
+        'circle-loader-1',
+        'circle-loader-2'
+    ];
+    for (let i = 0; i < 4; i++) {
+        let loaderName = loaderNameList[i];
         var actionnamelist = getActionsListForloader(loaderName);
         let actionsList = document.getElementsByClassName(
             loaderName.toLowerCase() + '-actions-list'
@@ -148,21 +124,8 @@ function updateActionListForLoader() {
                       .map(action => action.replace('action', ''))
                       .toString()
                 : '';
-        // actionsList.innerHTML.length != 0
-        //     ? actionsList.innerHTML + ',' + actionName.replace('action', '')
-        //     : actionName.replace('action', '');
     }
 }
-
-function loadAllLoadder() {
-    for (let i = 1; i <= 20; i++) {
-        store.dispatch({
-            type: 'ADD_LOADER',
-            name: 'LOADER' + i
-        });
-    }
-}
-loadAllLoadder();
 
 function stopLoader(actionName) {
     if (actionName) {
@@ -181,32 +144,6 @@ function stopLoader(actionName) {
     }
     $('.' + actionName).select2({ val: '' });
 }
-stopLoader();
-</script> -->
-
-<!-- all constants types -->
-<script src="js/actionsList.js"></script>
-<script src="js/loadersList.js"></script>
-<!-- all loaders -->
-<script src="js/circleLoader.js"></script>
-<script src="js/spinLoader.js"></script>
-
-<script src="js/store.js"></script>
-<script src="js/loaderActions.js"></script>
-<script>
-//if you don't pass visible type in ADD_ACTION it will consider visible true
-store.dispatch({
-    type: ActionsList.ADD_ACTION,
-    name: 'FETCH_DATA',
-    associateLoaders: ['spin-loader-2', 'spin-loader-1']
-});
-store.dispatch({
-    type: ActionsList.REMOVE_ACTION,
-    name: 'FETCH_DATA',
-    associateLoaders: ['spin-loader-1']
-});
-//let spinner = new Spinner().spin();
-// document.getElementById('spin').appendChild(spinner.el);
 </script>
 
 </body>

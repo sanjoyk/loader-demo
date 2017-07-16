@@ -101,11 +101,12 @@ this.store = createStore(combineReducer);
 console.log('store initialized', store.getState());
 
 function getActionsListForloader(loaderName) {
+    console.log(loaderName);
     let actionsList =
         store.getState().loaders && store.getState().loaders.length > 0
             ? store
                   .getState()
-                  .loaders.filter(loader => loader.name === loaderName)[0]
+                  .loaders.find(loader => loader.options.id === loaderName)
                   .actionsList
             : [];
     return [...actionsList];
