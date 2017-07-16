@@ -2,37 +2,7 @@
 <html>
 <head>
 <style>
-.loader {
-	border: 16px solid #f3f3f3;
-	border-radius: 50%;
-	border-top: 16px solid black;
-	width: 50px;
-	height: 50px;
-	-webkit-animation: spin 4s linear infinite;
-	animation: spin 4s linear infinite;
-}
 
-@-webkit-keyframes spin {
-	0% { -webkit-transform: rotate(0deg); }
-	100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-}
-.LOADER1{
-	border-top: 16px solid red;
-}
-.LOADER2{
-	border-top: 16px solid green;
-}
-.LOADER3{
-	border-top: 16px solid blue;
-}
-.LOADE4{
-	border-top: 16px solid yellow;
-}
 .loader-wrapper{
 	display: inline-block;
 	position: relative;
@@ -56,10 +26,10 @@
 
 	<!-- <h2>How To Create A Loader</h2>
 	<p><strong>Note:</strong> The -webkit- and -ms- prefixes are for browsers that do not support animation and transform properties.</p> -->
-<div class="loader-wrapper"><span>24</span><div id="circle-loader-1" data-loader-name="circle-loader"  data-display=false class="loader"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="circle-loader-2" data-loader-name="circle-loader" data-display=false class="loader"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="spin-loader-1" data-loader-name="spin-loader" data-display=true class="loader1"></div><p class="loader24-actions-list"></p></div>
-<div class="loader-wrapper"><span>24</span><div id="spin-loader-2" data-loader-name="spin-loader" data-display=true class="loader1"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="circle-loader-1" data-loader-name="circle-loader"  data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="circle-loader-2" data-loader-name="circle-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="spin-loader-1" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
+<div class="loader-wrapper"><span>24</span><div id="spin-loader-2" data-loader-name="spin-loader" data-display=false class="loader1"></div><p class="loader24-actions-list"></p></div>
 <div id="spin"></spin>
 <!-- <br/><br/>
 	<div>
@@ -221,10 +191,20 @@ stopLoader();
 <script src="js/circleLoader.js"></script>
 <script src="js/spinLoader.js"></script>
 
-
 <script src="js/store.js"></script>
 <script src="js/loaderActions.js"></script>
 <script>
+//if you don't pass visible type in ADD_ACTION it will consider visible true
+store.dispatch({
+    type: ActionsList.ADD_ACTION,
+    name: 'FETCH_DATA',
+    associateLoaders: ['spin-loader-2', 'spin-loader-1']
+});
+store.dispatch({
+    type: ActionsList.REMOVE_ACTION,
+    name: 'FETCH_DATA',
+    associateLoaders: ['spin-loader-1']
+});
 //let spinner = new Spinner().spin();
 // document.getElementById('spin').appendChild(spinner.el);
 </script>

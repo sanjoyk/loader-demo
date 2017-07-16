@@ -1,6 +1,9 @@
 this.LoaderActions = function() {
     this.initialize();
 };
+
+//use modular pattern and extends prototype
+// or use closure and return the global method
 this.LoaderActions.prototype.initialize = function() {
     let loaderList = document.getElementsByClassName('loader1');
     let loaderListLength = loaderList.length;

@@ -25,16 +25,16 @@ function createStore(reducer) {
 }
 
 const combineReducer = (state = {}, action) => {
-    function findLoaderIndex(loaderName) {
-        let associatedLoaderIndex = null;
+    function findLoader(loaderId) {
+        let associatedLoader = null;
         for (let i = 0; i < state.loaders.length; i++) {
             let loader = state.loaders[i];
-            if (loader.name === loaderName) {
-                associatedLoaderIndex = i;
+            if (loader.options.id === loaderId) {
+                associatedLoader = loader;
                 break;
             }
         }
-        return associatedLoaderIndex;
+        return associatedLoader;
     }
     function removeActionfromLoader(actionName) {}
     if (!action.type && typeof action.type === 'undefined') {
@@ -58,55 +58,40 @@ const combineReducer = (state = {}, action) => {
             }
             return state;
 
-        case 'ADD_ACTION':
+        case ActionsList.ADD_ACTION:
             let actionObj = new Action(action.name, action.associateLoaders);
 
             for (let i = 0; i < actionObj.associateLoaders.length; i++) {
-                let loaderName = actionObj.associateLoaders[i];
+                let loaderId = actionObj.associateLoaders[i];
 
-                let loaderIndex = findLoaderIndex(loaderName);
-                let loaderObject = state.loaders[loaderIndex];
-                loaderObject.visible = true;
-                //remove this line from here
-                document.getElementsByClassName(loaderName)[0].style.display =
-                    'block';
-                loaderObject.actionsList.push(actionObj.name);
+                let loaderObject = findLoader(loaderId);
+                loaderObject.open();
+                loaderObject.addAction(action.name);
             }
+            //add reducer to add action
             state.actions.push(action);
-            // var allLoader = document.getElementsByClassName('loader');
-            // for (var i = 0; i < allLoader.length; i++) {
-            //     allLoader[i].style.display = 'inline-block';
-            // }
             return state;
-        case 'REMOVE_ACTION':
+        case ActionsList.REMOVE_ACTION:
             function findAction(actionName) {}
             let actionName = action.name;
             let associateLoaders = action.associateLoaders;
-            let actionObjectIndex = state.actions.findIndex(
+
+            let actionObject = state.actions.find(
                 action => action.name === actionName
             );
-            let actionObject = state.actions[actionObjectIndex];
             if (!associateLoaders) {
                 associateLoaders = actionObject.associateLoaders;
             }
+
             for (let i = 0; i < associateLoaders.length; i++) {
-                let loaderIndex = findLoaderIndex(associateLoaders[i]);
-                let loader = state.loaders[loaderIndex];
-                var index = loader.actionsList.indexOf(actionName);
-                if (index > -1) {
-                    loader.actionsList.splice(index, 1);
-                    if (loader.actionsList.length == 0) {
-                        loader.visible = false;
-                        //remove this line from here
-                        document.getElementsByClassName(
-                            loader.name
-                        )[0].style.display =
-                            'none';
-                    }
-                }
+                let loader = findLoader(associateLoaders[i]);
+                loader.removeAction(actionName);
             }
+            let actionObjectIndex = state.actions.findIndex(
+                action => (action.name = actionName)
+            );
+            //add reducer to remove action
             state.actions.splice(actionObjectIndex, 1);
-            console.log();
             return state;
         default:
             return state;
@@ -152,10 +137,12 @@ function getActionsListForloader(loaderName) {
 // });
 // console.log('After ADD_LOADER loader3', store.getState());
 //
+
+// //if you don't pass visible type in ADD_ACTION it will consider visible true
 // store.dispatch({
-//     type: 'ADD_ACTION',
+//     type: ActionsList.ADD_ACTION,
 //     name: 'FETCH_DATA',
-//     associateLoaders: ['LOADER1', 'LOADER2']
+//     associateLoaders: ['spin-loader-2', 'spin-loader-1']
 // });
 // console.log('After ADD_ACTION FETCH_DATA', store.getState());
 // store.dispatch({

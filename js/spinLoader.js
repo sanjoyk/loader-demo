@@ -2,7 +2,11 @@
     this.SpinnerLoader = function() {
         this.loader = null;
         this.options = {};
+        this.actionsList = [];
 
+        //this.elementId
+        this.prefix =
+            navigator.userAgent.indexOf('WebKit') != -1 ? 'webkit' : 'moz';
         //use in style keyframe id
         SpinnerLoader.styleId = LoadersList.SPIN_LOADER;
 
@@ -10,9 +14,10 @@
         let defaults = {
             id: '',
             loaderName: '',
-            display: true,
+            display: false,
             size: '80px',
             position: 'relative',
+
             numberOfBars: 8,
             color: 'red'
         };
@@ -32,13 +37,45 @@
 
         //public method
         SpinnerLoader.prototype.open = function() {
-            this.element.style.display = 'inline-block';
+            this.loader.style.display = 'inline-block';
             this.options.display == true;
         };
         SpinnerLoader.prototype.close = function() {
-            this.element.style.display = 'none';
-            this.options.display = flase;
+            this.loader.style.display = 'none';
+            this.options.display = false;
         };
+        //will be private
+        SpinnerLoader.prototype.checkVisibility = function() {
+            if (this.actionsList.length == 0) {
+                this.close();
+            }
+        };
+        SpinnerLoader.prototype.addAction = function(actionName) {
+            this.actionsList.push(actionName);
+        };
+        SpinnerLoader.prototype.removeAction = function(actionName) {
+            var index = this.actionsList.indexOf(actionName);
+            if (index > -1) {
+                this.actionsList.splice(index, 1);
+            }
+            this.checkVisibility();
+        };
+
+        buildOut.call(this);
+
+        function buildOut() {
+            this.loader = document.createElement('div');
+            document.getElementById(this.options.id).appendChild(this.loader);
+            addStyleKeyFrame.call(this);
+            //create loader
+            setStyleInLoader.call(this);
+            addbars.call(this);
+            if (JSON.parse(this.options.display) == true) {
+                this.loader.style.display = 'inline-block';
+            } else {
+                this.loader.style.display = 'none';
+            }
+        }
         //will be in all loader
         //extract it
         function addStyleKeyFrame() {
@@ -52,6 +89,7 @@
                 document.getElementsByTagName('head')[0].appendChild(style);
             }
         }
+
         function setStyleInLoader() {
             this.loader.style.width = this.options.size;
             this.loader.style.height = this.options.size;
@@ -71,7 +109,7 @@
                 bar.style.background = this.options.color;
                 bar.style.position = 'absolute';
                 bar.style.left = '44.5%';
-                bar.style.top = '37%';
+                bar.style.top = '43%';
                 bar.style.opacity = '1';
                 bar.style.setProperty(
                     '-' + this.prefix + '-border-radius',
@@ -100,25 +138,6 @@
                 );
                 rotation += rotateBy;
                 animationDelay -= frameRate;
-            }
-        }
-
-        //this.elementId
-        this.prefix =
-            navigator.userAgent.indexOf('WebKit') != -1 ? 'webkit' : 'moz';
-        buildOut.call(this);
-
-        function buildOut() {
-            this.loader = document.createElement('div');
-            document.getElementById(this.options.id).appendChild(this.loader);
-            addStyleKeyFrame.call(this);
-            //create loader
-            setStyleInLoader.call(this);
-            addbars.call(this);
-            if (JSON.parse(this.options.display) == true) {
-                this.loader.style.display = 'inline-block';
-            } else {
-                this.loader.style.display = 'none';
             }
         }
     };
