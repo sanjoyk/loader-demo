@@ -1,0 +1,27 @@
+{
+  "name": "loader-manager",
+  "version": "1.0.0",
+  "description": "multiloaader management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjoyk/loader-demo.git"
+  },
+  "keywords": [
+    "loader-management",
+    "spin-loader",
+    "circle-loader"
+  ],
+  "author": "sanjoyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanjoyk/loader-demo/issues"
+  },
+  "homepage": "https://github.com/sanjoyk/loader-demo#readme",
+  "devDependencies": {
+    "webpack": "^3.3.0"
+  }
+}
