@@ -1,5 +1,5 @@
-(function() {
-    this.SpinnerLoader = function() {
+define('SpinnerLoader', ['./loadersList.js'], function(LoadersList) {
+    var SpinnerLoader = function() {
         this.loader = null;
         this.options = {};
         this.actionsList = [];
@@ -8,7 +8,7 @@
         this.prefix =
             navigator.userAgent.indexOf('WebKit') != -1 ? 'webkit' : 'moz';
         //use in style keyframe id
-        SpinnerLoader.styleId = LoadersList.SPIN_LOADER;
+        SpinnerLoader.styleId = SpinnerLoader.SPIN_LOADER;
 
         this.overlay = null;
         let defaults = {
@@ -141,13 +141,14 @@
             }
         }
     };
-})();
-
-new SpinnerLoader({
-    id: 'spin',
-    size: '100px',
-    numberOfBars: 7,
-    color: 'red',
-    loaderName: 'circle-loader'
-    //loaderName :
+    return SpinnerLoader;
 });
+// })
+// new SpinnerLoader({
+//     id: 'spin',
+//     size: '100px',
+//     numberOfBars: 7,
+//     color: 'red',
+//     loaderName: 'circle-loader'
+//     //loaderName :
+// });

@@ -1,5 +1,5 @@
-(function() {
-    this.CircleLoader = function(options) {
+define('SpinnerLoader', ['./loadersList.js'], function(LoadersList) {
+    var CircleLoader = function(options) {
         this.loader = null;
         this.options = {};
         this.actionsList = [];
@@ -79,7 +79,7 @@
         function addStyleKeyFrame() {
             if (document.getElementById(CircleLoader.styleId) == null) {
                 var style = document.createElement('style');
-                style.setAttribute('id', SpinnerLoader.styleId);
+                style.setAttribute('id', CircleLoader.styleId);
                 style.innerHTML =
                     '@-' +
                     this.prefix +
@@ -115,7 +115,8 @@
             this.loader.style.position = this.options.position;
         }
     };
-})();
+    return CircleLoader;
+});
 
 //
 // (function() {
